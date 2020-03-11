@@ -14,15 +14,15 @@ public class FindElementByID {
         driver.get("http://practice.cybertekschool.com/login");
         // -- By name --
         driver.findElement(By.name("username")).sendKeys("tomsmith");
-        Thread.sleep(3000);
+        Thread.sleep(1000);
 //        WebElement password = driver.findElement(By.name("password"));
 //        password.sendKeys("SuperSecretPassword");
 //        OR
         driver.findElement(By.name("password")).sendKeys("SuperSecretPassword");
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         // -- By ID --
         driver.findElement(By.id("wooden_spoon")).click();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
 
         String expected = "Welcome to the Secure Area. When you are done click logout below.";
         String actual = driver.findElement(By.tagName("h4")).getText();
@@ -36,7 +36,9 @@ public class FindElementByID {
 
         WebElement logout = driver.findElement(By.linkText("Logout"));
         String href = logout.getAttribute("href");
+        String className = logout.getAttribute("class");
         System.out.println(href);
+        System.out.println(className);
         logout.click();
         Thread.sleep(3000);
 
